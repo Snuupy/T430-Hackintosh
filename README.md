@@ -1,4 +1,69 @@
 # T430-Hackintosh
+
+In Progress: Sierra (10.12) on a ThinkPad T430
+
+## Steps:
+
+Disk Utility -> Erase
+
+	- USB
+	- Mac OS Extended (Journaled)
+	- GUID Partition Map
+
+Unibeast installation
+
+	- Settings: USB, Sierra, UEFI
+
+Run Clover Installer (Clover_v2.4k_r4061.pkg)
+
+	- Change Install Location: USB Drive
+	- Customize: (check the following) 
+		- Install for UEFI booting only
+		- Install Clover in the ESP
+		- Drivers64UEFI > OsxAptioFix2Drv-64
+		- Drivers64UEFI > OsxAptioFixDrv-64
+		- Themes > BGM (RehabMan's config files use this specific theme)
+
+Copy over kext files, HFSPlus.efi, and config that you need to boot
+
+	- Remove EFI/CLOVER/kexts/10.6, 10.7, 10.8, 10.9, 10.10, leaving just 'Other'
+	- copy HFSPlus.efi to EFI/CLOVER/drivers64UEFI (https://github.com/JrCs/CloverGrowerPro/raw/master/Files/HFSPlus/X64/HFSPlus.efi)
+	- copy the appropriate config.plist with your screen resolution to EFI/CLOVER/config.plist (you will have to rename it if you get it from here: https://github.com/RehabMan/OS-X-Clover-Laptop-Config)
+	- copy the following to EFI/CLOVER/kexts/Other:
+		- I COPIED THESE FROM X230: https://github.com/xxx10101xxx/ThinkPad-X230-macOS-10.12.x/tree/master/EFI/CLOVER/kexts/Other
+		- FakeSMC.kext (https://www.tonymacx86.com/resources/fakesmc.325/)
+		- NullCPUPowerManagement.kext (https://www.tonymacx86.com/resources/nullcpupowermanagement.268/)
+		- VoodooPS2Controller (https://github.com/RehabMan/OS-X-Voodoo-PS2-Controller or https://bitbucket.org/RehabMan/os-x-voodoo-ps2-controller/downloads/)
+
+	HDDs:
+		- Notes:
+      - most systems will work without DataHubDxe-64.efi, but some may require it
+		  - you might want "EmuVariableUefi-64.efi", but it would depend on whether native NVRAM works for you (most Skylake hardware has non-functional native NVRAM with OS X/macOS)
+
+Patch SSDT to enable native CPU power management:
+	- ssdtPrGen.sh
+	- sudo sh ssdtPrGen.sh
+	- copy SSDT.aml from ~/Library/ssdtPRGen/ to /EFI/CLOVER/ACPI in your EFI System Partition
+	- delete NullCPUPowerManagement.kext in /EFI/CLOVER/kexts/ in the EFI System Partition
+	- reboot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### Fully functional Lenovo T430 Hackintosh with discrete NVS5400M graphics (1600x900) and running El Capitan 10.11.5. 
 
 <sup>By fully functional, I mean other than onboard WiFi, VGA, card reader, and brightness control, but who's counting.</sup>
