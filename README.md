@@ -4,11 +4,11 @@
 
 
 In Progress: Sierra (10.12) on a ThinkPad T430
-Brightness fix: https://www.tonymacx86.com/threads/guide-lenovo-t430-el-capitan.175935/page-3#post-1132884
-https://www.tonymacx86.com/threads/lenovo-t430-mavericks.131428/#post804109
-
-
-https://github.com/RehabMan/Laptop-DSDT-Patch
+Brightness fix: https://www.tonymacx86.com/threads/guide-lenovo-t430-el-capitan.175935/page-3#post-1132884  
+https://www.tonymacx86.com/threads/lenovo-t430-mavericks.131428/#post804109  
+https://github.com/RehabMan/Laptop-DSDT-Patch  
+https://github.com/RehabMan/Laptop-DSDT-Patch/blob/master/graphics/graphics_PNLF_ivy_sandy.txt  
+https://github.com/RehabMan/Laptop-DSDT-Patch/blob/master/graphics/graphics_Rename-VID_AGP1.txt  
 
 ## Steps:
 
